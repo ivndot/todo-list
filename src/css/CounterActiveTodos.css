@@ -1,0 +1,15 @@
+/*Block*/
+.counterActiveTodo {
+  width: 90%;
+  height: auto;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+/*Element*/
+.counterActiveTodo__message {
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: rgb(95, 95, 95);
+}

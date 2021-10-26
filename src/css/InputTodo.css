@@ -1,0 +1,48 @@
+/*Block*/
+.inputTodo {
+  padding: 15px 0;
+  /* background-color: blue; */
+  font-size: 18px;
+}
+
+/*Element*/
+.inputTodo__inputText {
+  width: 60%;
+  height: auto;
+  padding: 15px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+/*Element*/
+.inputTodo__btn {
+  width: auto;
+  padding: 15px 30px;
+  margin-left: 10px;
+  border: 1px solid var(--B);
+  background-color: var(--B);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  color: rgb(230, 230, 230);
+  font-weight: 800;
+}
+
+.inputTodo__btn:hover {
+  background-color: var(--D);
+  border: 1px solid var(--D);
+  transition: ease 0.2s;
+}
+
+/*responsive*/
+@media screen and (max-width: 500px) {
+  .inputTodo__inputText {
+    width: 100%;
+  }
+
+  .inputTodo__btn {
+    width: 100%;
+    margin: 10px 0;
+  }
+}

@@ -1,38 +1,77 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+:root {
+  --A: #3f4661;
+  --B: #5071e6;
+  --C: #91a2e0;
+  --D: #223061;
+  --E: #717ead;
+  --BASE: rgb(245, 245, 245);
+  background-color: var(--BASE);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.flex {
   display: flex;
-  flex-direction: column;
   align-items: center;
+}
+
+.flex--start {
+  justify-content: flex-start;
+}
+
+.flex--end {
+  justify-content: flex-end;
+}
+
+.flex--center {
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.flex--spaceBetween {
+  justify-content: space-between;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.flex--spaceAround {
+  justify-content: space-around;
+}
+
+.flex--rowWrap {
+  flex-flow: row wrap;
+}
+
+.todoApp {
+  width: 70%;
+  margin: 50px auto;
+  /* background-color: red; */
+  padding: 20px;
+}
+
+.containerItems {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+  /* border: 1px solid #000; */
+  /* background-color:var(--E); */
+  border-radius: 5px;
+}
+
+.title {
+  text-align: center;
+  font-size: 60px;
+  font-weight: 200;
+  margin: 10px 0;
+  color: var(--D);
+  word-spacing: 10px;
+  letter-spacing: 5px;
+}
+
+button:hover {
+  cursor: pointer;
 }

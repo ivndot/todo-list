@@ -1,0 +1,17 @@
+.errorMessage {
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: rgb(228, 62, 70);
+  color: rgb(245, 245, 245);
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+/*responsive*/
+@media screen and (max-width: 500px) {
+  .errorMessage {
+    width: 100%;
+    margin: 0;
+  }
+}
