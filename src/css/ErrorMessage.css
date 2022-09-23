@@ -1,12 +1,17 @@
 .errorMessage {
-  width: 90%;
+  /* width: 90%;
   margin: 10px auto;
   padding: 10px;
   background-color: rgb(228, 62, 70);
   color: rgb(245, 245, 245);
   font-weight: 600;
-  border-radius: 5px;
+  border-radius: 5px; */
+  color: red;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
 }
+
 
 /*responsive*/
 @media screen and (max-width: 500px) {

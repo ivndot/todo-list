@@ -35,6 +35,11 @@
   transition: ease 0.2s;
 }
 
+/*Modifier*/
+.inputText--error{
+  border: 1px solid red;
+}
+
 /*responsive*/
 @media screen and (max-width: 500px) {
   .inputTodo__inputText {

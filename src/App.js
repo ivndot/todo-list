@@ -7,9 +7,8 @@ import CounterActiveTodos from "./components/CounterActiveTodos";
 import ItemTodo from "./components/ItemTodo";
 import { FilterTodos } from "./components/FilterTodos";
 import InputTodo from "./components/InputTodo";
-import ErrorMessage from "./components/ErrorMessage";
+import { nanoid } from "nanoid";
 
-let counter = 0;
 export default class App extends React.Component {
   state = {
     inputValue: "",
@@ -30,7 +29,7 @@ export default class App extends React.Component {
     const todoItemContent = this.state.inputValue;
     if (this.validateInput(todoItemContent)) {
       const itemObject = {
-        id: counter++,
+        id: nanoid(),
         mood: "active",
         content: todoItemContent,
       };
@@ -39,7 +38,7 @@ export default class App extends React.Component {
   };
 
   deleteItem = (e) => {
-    const targetId = parseInt(e.target.getAttribute("data-id"));
+    const targetId = e.target.getAttribute("data-id");
     const items = this.state.items;
     //get the object
     const object = items.find((item) => item.id === targetId);
@@ -71,7 +70,7 @@ export default class App extends React.Component {
   };
 
   toggleMoodItem = (e) => {
-    const targetId = parseInt(e.target.getAttribute("data-id"));
+    const targetId = e.target.getAttribute("data-id");
     const items = this.state.items;
 
     //get the item
@@ -107,9 +106,13 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="todoApp">
-        <p class="title">Todo App</p>
-        <InputTodo onChangeHandler={this.handleChange} inputValue={this.state.inputValue} onSubmitHandler={this.addItem} />
-        {this.state.inputError ? <ErrorMessage error={this.state.inputError} /> : null}
+        <p className="title">Todo App</p>
+        <InputTodo
+          onChangeHandler={this.handleChange}
+          inputValue={this.state.inputValue}
+          inputError={this.state.inputError}
+          onSubmitHandler={this.addItem}
+        />
         <div className="controlPanel flex flex--center">
           <FilterTodos value={this.state.comboBox} onChangeHandler={this.handleChange} />
           <ButtonTodo
@@ -143,8 +146,17 @@ const showItems = (items, filter, toggleMood, deleteItem) => {
   let result = [];
   //show all
   if (filter === "All") {
-    result = items.map((item, idx) => {
-      return <ItemTodo key={idx} id={item.id} content={item.content} mood={item.mood} onClickHandler={toggleMood} deleteItem={deleteItem} />;
+    result = items.map((item) => {
+      return (
+        <ItemTodo
+          key={item.id}
+          id={item.id}
+          content={item.content}
+          mood={item.mood}
+          onClickHandler={toggleMood}
+          deleteItem={deleteItem}
+        />
+      );
     });
   }
   //show complete
@@ -153,8 +165,17 @@ const showItems = (items, filter, toggleMood, deleteItem) => {
       .filter((item) => {
         return item.mood === "complete";
       })
-      .map((item, idx) => {
-        return <ItemTodo key={idx} id={item.id} content={item.content} mood={item.mood} onClickHandler={toggleMood} deleteItem={deleteItem} />;
+      .map((item) => {
+        return (
+          <ItemTodo
+            key={item.id}
+            id={item.id}
+            content={item.content}
+            mood={item.mood}
+            onClickHandler={toggleMood}
+            deleteItem={deleteItem}
+          />
+        );
       });
   }
   //show active
@@ -163,8 +184,17 @@ const showItems = (items, filter, toggleMood, deleteItem) => {
       .filter((item) => {
         return item.mood === "active";
       })
-      .map((item, idx) => {
-        return <ItemTodo key={idx} id={item.id} content={item.content} mood={item.mood} onClickHandler={toggleMood} deleteItem={deleteItem} />;
+      .map((item) => {
+        return (
+          <ItemTodo
+            key={item.id}
+            id={item.id}
+            content={item.content}
+            mood={item.mood}
+            onClickHandler={toggleMood}
+            deleteItem={deleteItem}
+          />
+        );
       });
   }
 
@@ -182,7 +212,13 @@ const showDeleteCompleteButton = (items, deleteCompleteItems) => {
   items.forEach((item) => {
     if (item.mood === "complete") isComplete = true;
   });
-  return isComplete ? <ButtonTodo name="Delete complete" onClickHandler={deleteCompleteItems} className="controlPanel__deleteComplete" /> : null;
+  return isComplete ? (
+    <ButtonTodo
+      name="Delete complete"
+      onClickHandler={deleteCompleteItems}
+      className="controlPanel__deleteComplete"
+    />
+  ) : null;
 };
 
 /**
